@@ -6,11 +6,15 @@ from django.conf import settings
 
 
 client = genai.Client(api_key=settings.GOOGLE_KEY)
+# for model in client.models.list():
+#     print(model.name, model.display_name)
 
+def format_gemma_response(response):
+    return response.replace('**', '\n')
 
 # Create your views here.
 def index(request):
-    model = 'gemini-2.5-flash-lite'
+    model = 'gemma-3-4b-it'
     if 'chat_history' not in request.session:
         request.session['chat_history'] = []
     
@@ -18,7 +22,7 @@ def index(request):
         # Get and add the prompt
         prompt = request.POST.get('prompt')
         
-        # Get the response
+        # Get the response 
         history = request.session['chat_history']
         try:
             chat = client.chats.create(model=model, history=history)
@@ -28,7 +32,7 @@ def index(request):
 
         # Update the history
         history.append({'role': 'user', 'parts': [{'text': prompt}]})
-        history.append({'role': 'model', 'parts': [{'text': response.text}]})
+        history.append({'role': 'model', 'parts': [{'text': format_gemma_response(response.text)}]})
         request.session['chat_history'] = history
 
     context = {'chat_history': request.session['chat_history']}
@@ -36,5 +40,5 @@ def index(request):
 
 
 def clear_history(request):
-    request.session.clear()
+    del request.session['chat_history']
     return redirect('chatbot:index')
