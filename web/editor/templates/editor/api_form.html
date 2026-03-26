@@ -1,0 +1,26 @@
+{% extends 'editor/index.html' %}
+{% load static %}
+
+<!-- Add the index's content to the main header block -->
+{% block form %}
+
+    <form id="api-form" class="form glass-container" method="post" action="{% url 'editor:api' %}">
+        {% csrf_token %}
+        <h3 class="form-title">API</h3>
+
+        <!-- Use API -->
+        <div class="form-input">
+            <label>Use API:</label>
+            <input type="radio" name="use-api" value="true" required {% if api.use_api %}checked{% endif %}>
+            <label>True</label>
+            <input type="radio" name="use-api" value="false" {% if not api.use_api %}checked{% endif %}>
+            <label>False</label>
+        </div>
+
+        <!-- Form submit button -->
+        <div class="form-button-container">
+            <button class="form-button" type="submit">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}

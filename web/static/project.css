@@ -1,0 +1,54 @@
+/***** Settings for entire site *****/
+*, *::before, *::after {
+    margin: 0px; /* No default margin for all elements */
+    padding: 0px; /* No default padding for all elements */
+    box-sizing: border-box; /* Padding/border included in calc */
+}
+
+/***** Define variables *****/
+:root {
+    --glass-color: rgb(255, 255, 255, 0.3);
+    --glass-border: rgb(255, 255, 255, 0.5);
+    --main-text-color: black;
+    --main-font: Georgia, 'Times New Roman', Times, serif;
+    --primary-background-color: #e6e6e6;
+}
+
+/***** Settings for html and body *****/
+html, body {
+    width: 100%;
+    overscroll-behavior: none;
+    background-color: var(--primary-color);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+/***** Define custom classes for the entire site *****/
+.centered-flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-container {
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: var(--glass-color);
+    color: var(--main-text-color);
+}
+
+/***** Main Section *****/
+#main-section {
+    margin-top: calc(var(--navbar-height) + var(--navbar-margin-top));
+    flex: 1; 
+    color: var(--primary-text-color);
+}

@@ -1,0 +1,65 @@
+{% extends 'editor/index.html' %}
+{% load static %}
+
+<!-- Add the index's content to the main header block -->
+{% block form %}
+
+    <form id="navbar-form" class="form glass-container" method="post" action="{% url 'editor:navbar' %}">
+        {% csrf_token %}
+        <h3 class="form-title">Navbar</h3>
+
+        <!-- Use a navbar -->
+        <div class="form-input">
+            <label>Use Navbar:</label>
+            <input type="radio" name="use-navbar" value="true" required {% if navbar.use_navbar %}checked{% endif %}>
+            <label>True</label>
+            <input type="radio" name="use-navbar" value="false" {% if not navbar.use_navbar %}checked{% endif %}>
+            <label>False</label>
+        </div>
+
+        <!-- Use glass styling -->
+        <div class="form-input">
+            <label>Use Glass Style:</label>
+            <input type="radio" name="glass" value="true" required {% if navbar.glass %}checked{% endif %}>
+            <label>True</label>
+            <input type="radio" name="glass" value="false" {% if not navbar.glass %}checked{% endif %}>
+            <label>False</label>
+        </div>
+
+        <!-- top margin height-->
+        <div class="form-input">
+            <label for="navbar-margin-top">Top Margin (in pixels):</label>
+            <input type="number" value="{{ navbar.margin_top }}" name="navbar-margin-top" min="0" max="100" step="5">
+        </div>
+
+        <!-- height of navbar -->
+        <div class="form-input">
+            <label for="navbar-height">Min. Height (in pixels):</label>
+            <input type="number" value="{{ navbar.height }}" name="navbar-height" min="20" max="500" step="10">
+        </div>
+
+        <!-- Flat or Rounded navbar -->
+        <div class="form-input">
+            <label for="navbar-style">Style:</label>
+            <select id="navbar-style" name="navbar-style">
+                <option value="rounded" {% if navbar.style == 'rounded' %}selected{% endif %}>Rounded</option>
+                <option value="flat" {% if navbar.style == 'flat' %}selected{% endif %}>Flat</option>
+            </select>
+        </div>
+
+        <!-- Relative or fixed navbar-->
+        <div class="form-input">
+            <label>Fixed:</label>
+            <input type="radio" name="navbar-fixed" value="true" required {% if navbar.fixed %}checked{% endif %}>
+            <label>True</label>
+            <input type="radio" name="navbar-fixed" value="false" {% if not navbar.fixed %}checked{% endif %}>
+            <label>False</label>
+        </div>
+
+        <!-- Form submit button -->
+        <div class="form-button-container">
+            <button class="form-button" type="submit">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}

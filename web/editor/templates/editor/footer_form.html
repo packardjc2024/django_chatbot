@@ -1,0 +1,29 @@
+{% extends 'editor/index.html' %}
+{% load static %}
+
+<!-- Add the index's content to the main header block -->
+{% block form %}
+
+<form method="post" class="form glass-container" action="{% url 'editor:footer' %}">
+    {% csrf_token %}
+    <h3>Footer</h3>
+
+    <!-- height-->
+    <div class="form-input">
+        <label>Height:</label>
+        <input type="number" value="{{ footer.height }}" name="footer-height" required min="10" max="400" step="5">
+    </div>
+
+    <!-- Background Color -->
+    <div class="form-input">
+        <label>Footer Background Color:</label>
+        <input type="text" value="{{ footer.background_color }}" name="footer-background-color" required>
+    </div>
+
+    <!-- Form submit button -->
+    <div class="form-button-container">
+        <button class="form-button" type="submit">Submit</button>
+    </div>
+</form>
+
+{% endblock %}

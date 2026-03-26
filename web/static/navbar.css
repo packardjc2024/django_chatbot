@@ -1,0 +1,160 @@
+:root {
+    --navbar-padding: 10px;
+    --navbar-width: 100%;
+    --small-navbar-height: 50px;
+    --navbar-font: Georgia, 'Times New Roman', Times, serif;
+}
+
+/***** Full size navbar for large screens *****/
+.navbar {
+    color: var(--navbar-text-color);
+    width: var(--navbar-width); 
+    /* height: var(--navbar-height); */
+    border-radius: var(--navbar-border-radius);
+    z-index: 1000;
+    position: var(--navbar-fixed);
+    margin-top: var(--navbar-margin-top);
+}
+
+#full-navbar {
+    height: var(--navbar-height);
+}
+
+.navbar-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding: var(--navbar-padding);
+}
+
+.navbar-left {
+    height: 100%;
+    flex: 0 0 auto; /* only takes up necessary space */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* left align */
+    gap: var(--navbar-padding);
+}
+
+#site-logo-large {
+    height: calc(var(--navbar-height) - (var(--navbar-padding) * 2));
+    width: auto;
+    display: block; /* Deal with spacing of issue of inline images */
+}
+
+.site-title-link {
+    text-decoration: None !important;
+    color: var(--navbar-text-color);
+}
+
+#site-title-text {
+    font-family: var(--navbar-font);
+}
+
+#navbar-center {
+    flex: 1;
+    text-align: center;
+    height: 100%;
+    gap: var(--navbar-padding); /* sets space between */
+    /* Center on page, not between left and right */
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.section-link {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#navbar-center a,
+#navbar-contact {
+    display: flex;
+    text-decoration: none !important;
+    color: var(--navbar-text-color);
+    padding: var(--navbar-padding) 0; /* Vertical padding only */
+}
+
+.navbar-right {
+    height: 100%;
+    flex: 0 0 auto; /* Only takes up necessary space */
+    display: flex;
+    margin-left: auto; /* left align */
+    align-items: center;
+    gap: var(--navbar-padding); /* Sets space between */
+}
+
+#github-navbar-img img{
+    height: 20px;
+    width: auto;
+    display: block;
+}
+
+/***** Small navbar settings *****/
+
+#small-navbar {
+    display: none;
+    height: var(--small-navbar-height);
+}
+
+#site-logo-small {
+    height: calc(var(--small-navbar-height) - (var(--navbar-padding) * 2));
+    width: auto;
+    display: block; /* Deal with spacing of issue of inline images */
+}
+
+#small-navbar-right {
+    height: 100%;
+    flex: 0 0 auto; /* Only takes up necessary space */
+    margin-left: auto; /* left align */
+    align-items: center;
+    position: relative;
+    display: inline-block;
+}
+
+#small-navbar-dropdown-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    min-width: 160px;
+    right: 0;
+    z-index: 1;
+    background-color: var(--glass-color);
+    color: var(--navbar-text-color);
+    border: 2px solid var(--glass-border);
+}
+
+#small-navbar-dropdown-container a {
+    text-decoration: none !important;
+    color: var(--navbar-text-color);
+    border-bottom: 2px solid var(--glass-border);
+    width: 100%;
+    text-align: center;
+}
+
+#small-navbar-dropdown-container a:last-of-type {
+    border-bottom: none !important;
+}
+
+
+/***** For smaller screens *****/
+@media (max-width: 762px) {
+    #full-navbar {
+        display: none;
+    }
+    #small-navbar {
+        display: flex;
+    }
+    #main-section {
+        margin-top: calc(var(--small-navbar-height) + var(--navbar-margin-top))
+    }
+    #navbar-contact {
+        text-align: center;
+    }
+}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!-- Add the static files to the header block -->
+{% block header_extension %}
+<link rel="stylesheet" type="text/css" href='{% static "editor/editor.css" %}'>
+<script type="text/javascript" src="{% static 'editor/editor.js' %}"></script>
+{% endblock %}
+
+
+<!-- Add the index's content to the main header block -->
+{% block body_extension %}
+
+<div id="top-container" class="centered-flex">
+    <h1>Edit Your Website</h1>
+</div>
+<div id="bottom-container">
+    <div id="selection-container">
+        {% for form in forms %}
+        <form method="get" action="{% url form.url %}">
+            {% csrf_token %}
+            <div class="selection-option centered-flex">
+                <input type="hidden" value="{{ form.value }}" name="section" id="{{ form.value }}">
+                <button type="submit" class="toolbar-button">{{ form.display }}</button>
+            </div>
+        </form>
+        {% endfor %}
+    </div>
+    <div id="form-container">
+        {% block form %}
+        {% endblock %}
+    </div>
+</div>
+
+
+{% endblock %}

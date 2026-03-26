@@ -1,0 +1,34 @@
+{
+    "apps": {
+        "use_account": false,
+        "use_api": false,
+        "use_editor": false,
+        "use_admin": false,
+        "use_email": false,
+        "use_contact": false,
+        "use_chatbot": true
+    },
+    "general": {
+        "site_title": "ChatBot",
+        "primary_color": "#ece9e4",
+        "navbar_color": null
+    },
+    "page_links": [
+        "Editor",
+        "ChatBot"
+    ],
+    "navbar": {
+        "use_navbar": true,
+        "glass": true,
+        "style": "rounded",
+        "fixed": true,
+        "height": "60",
+        "margin_top": "10",
+        "padding": "100"
+    },
+    "footer": {
+        "use_footer": true,
+        "height": "50",
+        "background_color": "red"
+    }
+}

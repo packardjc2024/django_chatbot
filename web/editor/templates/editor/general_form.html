@@ -1,0 +1,35 @@
+{% extends 'editor/index.html' %}
+{% load static %}
+
+<!-- Add the index's content to the main header block -->
+{% block form %}
+
+    <form id="general-form" class="form glass-container" method="post" action="{% url 'editor:general' %}">
+        {% csrf_token %}
+        <h3 class="form-title">General</h3>
+
+        <!-- Site Title -->
+        <div class="form-input">
+            <label>Site Title:</label>
+            <input type="text" value="{{ general.site_title }}" name="site-title" required>
+        </div>
+
+        <!-- Background Color -->
+        <div class="form-input">
+            <label>Primary (Background) Color:</label>
+            <input type="text" value="{{ general.primary_color }}" name="primary-color" required>
+        </div>
+
+        <!-- Navbar Color-->
+        <div class="form-input">
+            <label>Navbar Color:</label>
+            <input type="text" value="{{ general.navbar_color }}" name="navbar-color" required>
+        </div>
+
+        <!-- Form submit button -->
+        <div class="form-button-container">
+            <button class="form-button" type="submit">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}

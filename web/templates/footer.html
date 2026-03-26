@@ -1,0 +1,9 @@
+{% load static %}
+<footer id="footer">
+    {% for attribution in attributions %}
+        <p class="attribution">*{{ attribution.text }} <a href="{{ attribution.link }}"> {{ attribution.name }} </a> </p>
+    {% endfor %}
+    {% if copyright_name %}
+        <div id="copyright"><p>&copy; {{ copyright_name }} {{ copyright_year }}</p></div>
+    {% endif %}
+</footer>

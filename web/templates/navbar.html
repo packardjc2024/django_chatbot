@@ -1,0 +1,75 @@
+{% load static %}
+<!-- Navbar for large screens -->
+<header id="full-navbar" class="navbar {% if navbar_glass %}glass-container{% endif %}">
+    <div class="navbar-content">
+        <div id="navbar-left" class="centered-flexbox">
+            <a href="{% url 'home_page:index' %}">
+                <img id="site-logo-large" src="{{ site_logo_url }}" alt="Site Logo">
+            </a>
+            <a class="site-title-link" href="{% url 'home_page:index' %}">
+                <h1 id="site-title-test" class="site-title">{{ site_title }}</h1>
+            </a>
+        </div>
+        <div id="navbar-center" class="centered-flexbox">
+            {% for page in page_links %}
+                <a href="{% url page.href %}" class="section-link">{{ page.display_name }}</a>
+                    {% if not forloop.last %}
+                        <span>|</span>
+                    {% endif %}
+            {% endfor %}
+        </div>
+        
+        <div class="navbar-right">
+            {% if use_account %}
+            <a href="{% url 'account:index' %}">
+                <img src="{% static 'site_pictures/account.svg' %}" alt="Login">
+            </a>
+            <a href="{% url 'account:user_logout' %}">
+                <img src="{% static 'site_pictures/logout.svg' %}" alt="Login">
+            </a>
+            {% endif %}
+            {% if use_contact %}
+            <a id="navbar-contact" href="#contact-section" class="section-link">Contact</a>
+            {% endif %}
+            <a id="github-navbar-img" href="https://github.com/packardjc2024/website_builder">
+                <img src="{% static 'site_pictures/github_black.svg' %}">
+            </a>
+        </div>
+        
+    </div>
+</header>
+
+
+<!-- Navbar for small screens -->
+<header id="small-navbar" class="navbar {% if navbar_glass %}glass-container{% endif %}">
+    <div class="navbar-content">
+        <div id="small-navbar-left" class="navbar-left centered-flexbox">
+            <a href="{% url 'home_page:index' %}">
+                <img id="site-logo-small" src="{{ site_logo_url }}" alt="Site Logo">
+            </a>
+            <a class="site-title-link" href="{% url 'home_page:index' %}">
+                <h1 class="site-title">{{ site_title }}</h1>
+            </a>
+        </div>
+        <div id="small-navbar-right">
+            <img id="small-navbar-menu-icon" src="{% static 'site_pictures/menu.svg' %}">
+            <div id="small-navbar-dropdown-container" class="glass-container">
+                {% if use_account %}
+                    <a href="{% url 'account:index' %}">
+                        <img src="{% static 'site_pictures/account.svg' %}" alt="Login">
+                    </a>
+                    <a href="{% url 'account:user_logout' %}">
+                        <img src="{% static 'site_pictures/logout.svg' %}" alt="Login">
+                    </a>
+                {% endif %}
+                    {% for page in page_links %}
+                        <a href="{% url page.href %}" class="section-link">{{ page.display_name }}</a>
+                    {% endfor %}
+                    {% if use_contact %}
+                    <a href="#contact-section" class="section-link">Contact</a>
+                    {% endif %}
+                    <a href="https://github.com/packardjc2024/website_builder" class="section-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+</header>

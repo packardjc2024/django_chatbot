@@ -1,0 +1,13 @@
+:root {
+	--primary-color: #ece9e4 !important;
+	--main-section-height: calc(100vh - 60px - 50px) !important;
+	--navbar-height: 60px !important;
+	--navbar-fixed: fixed !important;
+	--main-section-margin-top: 70px !important;
+	--navbar-width: 95% !important;
+	--navbar-border-radius: 20px !important;
+	--navbar-margin-top: 10px !important;
+	--footer-background-color: None !important;
+	--footer-height: 50px !important;
+
+}

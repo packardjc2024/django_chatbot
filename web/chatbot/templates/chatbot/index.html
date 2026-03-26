@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!-- Add the static files to the header block -->
+{% block header_extension %}
+<link rel="stylesheet" type="text/css" href='{% static "chatbot/chatbot.css" %}'>
+<script type="text/javascript" src="{% static 'chatbot/chatbot.js' %}"></script>
+{% endblock %}
+
+<!-- Add the index's content to the main header block -->
+{% block body_extension %}
+
+<div id="chatbot-title">
+    <h1>ChatBot</h1>
+</div>
+
+<div id="warning">
+    <h3>Warning: This  chatbot uses a free online AI model!</h3>
+    <h5>This means your data may be stored and/or used for training.</h5>
+    <h5>Do not enter any sensitive information.</h5>
+</div>
+
+<div id="chat-toolbar">
+    <form method="post" action="{% url 'chatbot:clear_history' %}">
+        {% csrf_token %}
+        <button type="submit">Clear History</button>
+    </form>
+</div>
+
+<div id="chat-container" class="glass-container">
+
+    <div id="chat-history">
+        {% for item in chat_history %}
+        <div class="{% if item.role == 'user' %}user{% else %}model{% endif %}">
+            <p>{{ item.parts.0.text }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <form id="chatbot-form" method="post" action="{% url 'chatbot:index' %}">
+        {% csrf_token %}
+        <textarea id="prompt" name="prompt" rows="10" cols="50" placeholder="Ask me something..."></textarea>
+    </form>
+   
+</div>
+
+{% endblock %}

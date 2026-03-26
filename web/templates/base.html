@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ site_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/android-chrome-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/android-chrome-512x512.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <!-- Bootstrap and JQuery-->
+    <script type="text/javascript" src="{% static 'jquery.js' %}"></script>
+    <!-- Project level CSS and JS Files -->
+    <link rel="stylesheet" type="text/css" href='{% static "project.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "navbar.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "footer.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "themes.css" %}'>
+    <script type="text/javascript" src="{% static 'project.js' %}"></script>
+    <!-- Block for Apps to add CSS and JS Files -->
+    {% block header_extension %}
+    {% endblock %}  
+</head>
+
+<body>
+
+    <!-- Navbar at the top of the page-->
+    {% if use_navbar %}
+        {% include 'navbar.html' %}
+    {% endif %}
+
+    <!-- main-div that contains everything except the nav-bar and bottom-footer -->
+     <div id="main-section">
+        {% block body_extension %}
+        {% endblock %}
+    </div> 
+
+    <!-- Footer -->
+     {% if use_footer %}
+        {% include 'footer.html' %}
+    {% endif %}
+
+</body>
+
+</html>

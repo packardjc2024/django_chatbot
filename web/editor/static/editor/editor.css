@@ -1,0 +1,108 @@
+:root {
+    --toolbar-border: 1px solid black;
+}
+
+#main-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: var(--toolbar-border);
+}
+
+#top-container {
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+#top-container > h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+#bottom-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex: 1 1 0;
+}
+
+#selection-container {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    border-top: var(--toolbar-border);
+    border-right: var(--toolbar-border);
+}
+
+.selection-container > form {
+    width: 100%;
+    height: 100%;
+}
+
+.selection-option {
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.toolbar-button {
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    background-color: transparent;
+    color: black;
+    border: none;
+}
+
+.toolbar-button:hover {
+    background-color: blue;
+    cursor: pointer;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex: 1 1 0;
+    border-top: 1px solid black;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    margin: 10px;
+}
+
+.form-title {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.form-input > label {
+    margin-right: 10px;
+}
+
+.form-input > input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.form-button {
+    width: 60px;
+}

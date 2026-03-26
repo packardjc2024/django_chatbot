@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!-- Add the static files to the header block -->
+{% block header_extension %}
+<link rel="stylesheet" type="text/css" href='{% static "api/api.css" %}'>
+<script type="text/javascript" src="{% static 'api/api.js' %}"></script>
+{% endblock %}
+
+
+<!-- Add the index's content to the main header block -->
+{% block body_extension %}
+
+<!--- Error message display-->
+{% if error_message %}
+    <div id="error-container">
+        <h1>{{ error_title }}</h1>
+        <h3>{{ error_message }}</h2>
+    </div>
+{% endif %}
+
+<div id="password-container"> 
+    <form method="post" id="password-form">
+        {% csrf_token %}
+        <label for="application">Application Name:</label>
+        <input type="text" id="application" name="application"> 
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button id="password-submit" type="submit">Submit</button>
+    </form>
+</div>
+
+<div id="results-container">
+    <p>Copy your encryption key below. You will not be able to access it again later.</p>
+    <p id="encryption-key"></p>
+</div>
+
+{% endblock %}

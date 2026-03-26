@@ -1,0 +1,50 @@
+/********** Site-wide **********/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+/********* Error message container **********/
+#error-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    background-color: #ff8080;
+}
+
+/******* add a secret *****/
+#main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* height: 100vh; */
+}
+
+#password-container, #results-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: row;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+#results-container {
+    display: none;
+}
+
+#password-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: row;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+#password-form > input, label, button {
+    margin: 5px;
+}
