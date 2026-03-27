@@ -68,10 +68,9 @@
 #chat-toolbar {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 20px;
+    width: 95%;
+    align-items: stretch;
+    justify-content: center;
     border: 1px solid black;
 }
 
@@ -81,10 +80,11 @@
     align-items: center;
     justify-content: center;
     padding: 5px;
+    border-right: 1px solid black;
 }
 
-.toolbar-form-container:not(:last-child) {
-    border-right: 1px solid black;
+.toolbar-form-container:first-child {
+    border-left: 1px solid black;
 }
 
 .toolbar-form {
@@ -96,8 +96,8 @@
 }
 
 .toolbar-button {
-    /* all: unset;
-    cursor: pointer; */
+    cursor: pointer;
+    padding: 5px;
 }
 
 /***** For smaller screens *****/

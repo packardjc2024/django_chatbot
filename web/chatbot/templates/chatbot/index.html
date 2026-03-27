@@ -25,7 +25,7 @@
     <div class="toolbar-form-container">
         <form method="post" action="{% url 'chatbot:clear_history' %}">
             {% csrf_token %}
-            <button type="submit" class="toolbar-button">Clear History</button>
+            <button type="submit" class="toolbar-button glass-container">Clear History</button>
         </form>
     </div>
     <div class="toolbar-form-container">
@@ -40,7 +40,7 @@
                 <input type="radio" name="system_setting" value="formal" {% if system_setting == 'formal' %}checked{% endif %}>
                 <label>Formal</label>
             </div>
-            <button type="submit" class="toolbar-button">Update</button>
+            <button type="submit" class="toolbar-button glass-container">Update</button>
         </form>
     </div>
     

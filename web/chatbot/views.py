@@ -42,8 +42,6 @@ def index(request):
     # Print free tier models:
     # for free_model in client.models.list():
     #     print(free_model.name)
-
-    print(request.session['system_setting'])
     
     if request.method == 'POST':
         # Get and add the prompt
