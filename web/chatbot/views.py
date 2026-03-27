@@ -51,7 +51,7 @@ def index(request):
         history = []
         for msg in request.session['chat_history']:
             if msg['role'] == 'user':
-                history.append(types.TextMessage(content=msg['content']))
+                history.append(types.UserMessage(content=msg['content']))
             else:
                 history.append(types.AssistantMessage(content=msg['content']))
         try:
