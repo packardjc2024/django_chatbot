@@ -89,4 +89,5 @@ def edit_model_system(request):
             return HttpResponse('Now a valid system option')
         else:
             request.session['system_setting'] = new_setting
+        del request.session['chat_history']
     return redirect('chatbot:index')
