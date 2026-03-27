@@ -23,15 +23,16 @@
 
 <div id="chat-toolbar">
     <div class="toolbar-form-container">
-        <form method="post" action="{% url 'chatbot:clear_history' %}">
+        <form method="post" action="{% url 'chatbot:clear_history' %}" class="toolbar-form">
             {% csrf_token %}
-            <button type="submit" class="toolbar-button glass-container">Clear History</button>
+            <label class="main-label">Clear History</label>
+            <button type="submit" class="toolbar-button glass-container">Clear</button>
         </form>
     </div>
     <div class="toolbar-form-container">
         <form class="toolbar-form" method="post" action="{% url 'chatbot:edit_model_system' %}">
             {% csrf_token %}
-            <label>Change Type of Response</label>
+            <label class="main-label">Change Type of Response</label>
             <div class="radio-container">
                 <input type="radio" name="system_setting" value="concise" required {% if system_setting == 'concise' %}checked{% endif %}>
                 <label>Concise</label>
@@ -43,7 +44,6 @@
             <button type="submit" class="toolbar-button glass-container">Update</button>
         </form>
     </div>
-    
 </div>
 
 <div id="chat-container" class="glass-container">
