@@ -59,11 +59,5 @@ def add_global_context(request):
         'use_contact': config_data['apps']['use_contact'],
         # Footer
         'use_footer': config_data['footer']['use_footer'],
-        'attributions': [
-            {
-                'name': 'test name',
-                'text': 'test text',
-                'link': 'test link',
-            },
-        ],
+        'attributions': None  # List of dicts
     }

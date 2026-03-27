@@ -64,3 +64,45 @@
     border-radius: 10px;
     padding: 5px;
 }
+
+#chat-toolbar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 20px;
+    border: 1px solid black;
+}
+
+.toolbar-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.toolbar-form-container:not(:last-child) {
+    border-right: 1px solid black;
+}
+
+.toolbar-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.toolbar-button {
+    /* all: unset;
+    cursor: pointer; */
+}
+
+/***** For smaller screens *****/
+@media (max-width: 762px) {
+    #chat-container {
+        width: 95%;
+    }
+}
